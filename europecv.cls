@@ -1,17 +1,17 @@
 %!TEX encoding = UTF-8 Unicode
 %
 % European curriculum vitae class
-% Author: Nicola Vitacolonna (vitacolo@dimi.uniud.it)
+% Authors: Nicola Vitacolonna (vitacolo@dimi.uniud.it), Miroslav Kyurchev (mkyurchev@gmail.com)
 % This material is subject to the LaTeX Project Public License.
 % See  http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html
 % for the details of that license
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{europecv}[2006/04/24 (beta) European curriculum vitae class]
+\ProvidesClass{europecv}[2014/02/02 (beta) European curriculum vitae class]
 
 % CV models and instructions:
-%   http://europass.cedefop.eu.int/htm/index.htm
-% Recommendations:
-%   http://europa.eu.int/scadplus/leg/en/cha/c11057.htm
+%   https://europass.cedefop.europa.eu/en/documents/curriculum-vitae/templates-instructions
+% CV examples:
+%   https://europass.cedefop.europa.eu/en/documents/curriculum-vitae/examples
 
 \newcommand\ecv@utf[1]{{\inputencoding{utf8x}#1}}
 
@@ -297,6 +297,7 @@
 \RequirePackage{array}
 \RequirePackage{longtable}
 \RequirePackage{fancyhdr} % For page numbering
+\usepackage{xstring}
 
 \def\ecv@totpages{}
 \newcommand*{\ecvpage}[1]{\def\ecv@page{#1}}
@@ -414,7 +415,13 @@
 {\large\ecv@mothertonguekey} & \large\textbf{#2}\tabularnewline[#1]
 }
 \newlength\ecv@langparwidth
-
+\newlength\ecv@langparlwidth
+\newlength\ecv@langparrwidth
+\newcommand*\ecvlanguagelevel[1]{%
+\IfBeginWith{#1}{A}{\scriptsize{\ecv@cefbasickey}}{}%
+\IfBeginWith{#1}{B}{\scriptsize{\ecv@cefindepkey}}{}%
+\IfBeginWith{#1}{C}{\scriptsize{\ecv@cefprofkey}}{}%
+}
 \ifx\ecv@booktabs\undefined % Use table conforming to EU model
   \newcommand*\ecvlanguageheader[1]{%
   {\large\textit{\ecv@assesskey}}\\ \textit{\ecv@levelkey}${}^{\mbox{\scriptsize#1}}$&
@@ -422,7 +429,7 @@
   \begin{tabular}[t]{|m{\ecv@langparwidth}|m{\ecv@langparwidth}|m{\ecv@langparwidth}|m{\ecv@langparwidth}|m{\ecv@langparwidth}|}
   \firsthline
   \multicolumn{2}{|c|}{\textbf{\ecv@understandkey}}&\multicolumn{2}{c|}{\textbf{\ecv@speakkey}}&\centering\textbf{\ecv@writekey}\tabularnewline\cline{1-4}
-  \centering\small{\ecv@listenkey}   & \centering \small{\ecv@readkey} &\centering \small{\ecv@interactkey} &\centering \small{\ecv@productkey} & \tabularnewline
+  \centering\scriptsize{\ecv@listenkey}&\centering\scriptsize{\ecv@readkey}&\centering\scriptsize{\ecv@interactkey}&\centering\scriptsize{\ecv@productkey}&\tabularnewline
   %\lasthline
   \hline
   \end{tabular} \tabularnewline[-\arrayrulewidth]
@@ -430,9 +437,10 @@
   \newcommand*\ecvlanguage[7][0pt]{
   {\textbf{#2}} &
   \setlength\extrarowheight{0pt}
-  \begin{tabular}{|m{\ecv@langparwidth}|m{\ecv@langparwidth}|m{\ecv@langparwidth}|m{\ecv@langparwidth}|m{\ecv@langparwidth}|}
+  \begin{tabular}{|m{\ecv@langparlwidth}|m{\ecv@langparrwidth}|m{\ecv@langparlwidth}|m{\ecv@langparrwidth}|m{\ecv@langparlwidth}|m{\ecv@langparrwidth}|m{\ecv@langparlwidth}|m{\ecv@langparrwidth}|m{\ecv@langparlwidth}|m{\ecv@langparrwidth}|}
   \hline
-   #3 & #4 & #5 & #6 & #7 \tabularnewline
+  \small{#3} & \ecvlanguagelevel{#3} & \small{#4} & \ecvlanguagelevel{#4} & \small{#5} & \ecvlanguagelevel{#5} &
+  \small{#6} & \ecvlanguagelevel{#6} & \small{#7} & \ecvlanguagelevel{#7} \tabularnewline
   \hline
   \end{tabular}\vspace{#1}
   \tabularnewline[-\arrayrulewidth]
@@ -445,23 +453,25 @@
   \begin{tabular}[t]{m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}}
   \toprule
   \multicolumn{2}{c}{\textbf{\ecv@understandkey}}&\multicolumn{2}{c}{\textbf{\ecv@speakkey}}&\centering\textbf{\ecv@writekey}\tabularnewline
-  \centering\small{\ecv@listenkey}   & \centering \small{\ecv@readkey} &\centering \small{\ecv@interactkey} &\centering \small{\ecv@productkey} & \tabularnewline
+  \centering\scriptsize{\ecv@listenkey}&\centering\scriptsize{\ecv@readkey}&\centering\scriptsize{\ecv@interactkey}&\centering\scriptsize{\ecv@productkey}&\tabularnewline
   \midrule
   \end{tabular}\vspace{2\arrayrulewidth}\tabularnewline
   }
   \newcommand*\ecvlanguage[7][0pt]{
   {\textbf{#2}} &
   \setlength\extrarowheight{0pt}
-  \begin{tabular}{m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}}
-   #3 & #4 & #5 & #6 & #7\tabularnewline \midrule
+  \begin{tabular}{m{\ecv@langparlwidth}m{\ecv@langparrwidth}m{\ecv@langparlwidth}m{\ecv@langparrwidth}m{\ecv@langparlwidth}m{\ecv@langparrwidth}m{\ecv@langparlwidth}m{\ecv@langparrwidth}m{\ecv@langparlwidth}m{\ecv@langparrwidth}}
+  \small{#3} & \ecvlanguagelevel{#3} & \small{#4} & \ecvlanguagelevel{#4} & \small{#5} & \ecvlanguagelevel{#5} &
+  \small{#6} & \ecvlanguagelevel{#6} & \small{#7} & \ecvlanguagelevel{#7} \tabularnewline \midrule
   \end{tabular}\vspace{#1}
   \tabularnewline
   }
   \newcommand*\ecvlastlanguage[7][0pt]{
   {\textbf{#2}} &
   \setlength\extrarowheight{0pt}
-  \begin{tabular}{m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}}
-   #3 & #4 & #5 & #6 & #7\tabularnewline \bottomrule
+  \begin{tabular}{m{\ecv@langparlwidth}m{\ecv@langparrwidth}m{\ecv@langparlwidth}m{\ecv@langparrwidth}m{\ecv@langparlwidth}m{\ecv@langparrwidth}m{\ecv@langparlwidth}m{\ecv@langparrwidth}m{\ecv@langparlwidth}m{\ecv@langparrwidth}}
+  \small{#3} & \ecvlanguagelevel{#3} & \small{#4} & \ecvlanguagelevel{#4} & \small{#5} & \ecvlanguagelevel{#5} &
+  \small{#6} & \ecvlanguagelevel{#6} & \small{#7} & \ecvlanguagelevel{#7} \tabularnewline \bottomrule
   \end{tabular}\vspace{#1}
   \tabularnewline
   }
@@ -552,6 +562,12 @@
   \setlength\ecv@langparwidth{.199\ecv@rightcolwidth}
   \addtolength{\ecv@langparwidth}{-2\tabcolsep}
   \addtolength{\ecv@langparwidth}{-2\arrayrulewidth}
+  \setlength\ecv@langparlwidth{.067\ecv@rightcolwidth}
+  \addtolength{\ecv@langparlwidth}{-2\tabcolsep}
+  \addtolength{\ecv@langparlwidth}{-2\arrayrulewidth}
+  \setlength\ecv@langparrwidth{.133\ecv@rightcolwidth}
+  \addtolength{\ecv@langparrwidth}{-2\tabcolsep}
+  \addtolength{\ecv@langparrwidth}{-2\arrayrulewidth}
 % Begin
 \begin{longtable}[l]{@{}>{\raggedleft}p{\ecv@leftcolwidth}@{\hspace{\ecv@colsep}}|@{\extracolsep{\ecv@colsep}}p{\ecv@rightcolwidth}@{}}
   \ecv@hrule
