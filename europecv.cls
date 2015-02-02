@@ -18,7 +18,7 @@
 % Set language
 \DeclareOption{english}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecven.def}{}{%
+    \InputIfFileExists{languages/en.def}{}{%
     \ClassError{europecv}{English definition file 'ecven.def' not found}%
      {The file should be inside the europecv folder.\MessageBreak
     Try to re-install the europecv class.}}%
@@ -26,85 +26,85 @@
 }
 \DeclareOption{italian}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvit.def}{}{%
+    \InputIfFileExists{languages/it.def}{}{%
     \ClassWarningNoLine{europecv}{Italian definition file 'ecvit.def' not found}}%
   }%
 }
 \DeclareOption{spanish}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecves.def}{}{%
+    \InputIfFileExists{languages/es.def}{}{%
     \ClassWarningNoLine{europecv}{Spanish definition file 'ecves.def' not found}}%
   }%
 }
 \DeclareOption{french}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvfr.def}{}{%
+    \InputIfFileExists{languages/fr.def}{}{%
     \ClassWarningNoLine{europecv}{French definition file 'ecvfr.def' not found}}%
   }%
 }
 \DeclareOption{danish}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvda.def}{}{%
+    \InputIfFileExists{languages/da.def}{}{%
     \ClassWarningNoLine{europecv}{Danish definition file 'ecvda.def' not found}}%
   }%
 }
 \DeclareOption{german}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvde.def}{}{%
+    \InputIfFileExists{languages/de.def}{}{%
     \ClassWarningNoLine{europecv}{German definition file 'ecvde.def' not found}}%
   }%
 }
 \DeclareOption{finnish}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvfi.def}{}{%
+    \InputIfFileExists{languages/fi.def}{}{%
     \ClassWarningNoLine{europecv}{Finnish definition file 'ecvfi.def' not found}}%
   }%
 }
 \DeclareOption{portuges}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvpt.def}{}{%
+    \InputIfFileExists{languages/pt.def}{}{%
     \ClassWarningNoLine{europecv}{Portuguese definition file 'ecvpt.def' not found}}%
   }%
 }
 \DeclareOption{portuguese}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvpt.def}{}{%
+    \InputIfFileExists{languages/pt.def}{}{%
     \ClassWarningNoLine{europecv}{Portuguese definition file 'ecvpt.def' not found}}%
   }%
 }
 \DeclareOption{swedish}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvsv.def}{}{%
+    \InputIfFileExists{languages/sv.def}{}{%
     \ClassWarningNoLine{europecv}{Swedish definition file 'ecvsv.def' not found}}%
   }%
 }
 \DeclareOption{norwegian}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvno.def}{}{%
+    \InputIfFileExists{languages/no.def}{}{%
     \ClassWarningNoLine{europecv}{Norwegian definition file 'ecvno.def' not found}}%
   }%
 }
 \DeclareOption{dutch}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvnl.def}{}{%
+    \InputIfFileExists{languages/nl.def}{}{%
     \ClassWarningNoLine{europecv}{Dutch definition file 'ecvnl.def' not found}}%
   }%
 }
 \DeclareOption{catalan}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvca.def}{}{%
+    \InputIfFileExists{languages/ca.def}{}{%
     \ClassWarningNoLine{europecv}{Catalan definition file 'ecvca.def' not found}}%
   }%
 }
 \DeclareOption{polish}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvpl.def}{}{%
+    \InputIfFileExists{languages/pl.def}{}{%
     \ClassWarningNoLine{europecv}{Polish definition file 'ecvpl.def' not found}}%
   }%
 }
 \DeclareOption{hungarian}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvhu.def}{}{%
+    \InputIfFileExists{languages/hu.def}{}{%
     \ClassWarningNoLine{europecv}{Hungarian definition file 'ecvhu.def' not found}}%
     \ecvpage{\thepage\ifx\@empty\ecv@totpages.\else\ecv@totpages\fi~\ecv@pagekey}
     \def\ecv@lfoot{%
@@ -113,79 +113,79 @@
 }
 \DeclareOption{estonian}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvet.def}{}{%
+    \InputIfFileExists{languages/et.def}{}{%
     \ClassWarningNoLine{europecv}{Estonian definition file 'ecvet.def' not found}}%
   }%
 }
 \DeclareOption{icelandic}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvis.def}{}{%
+    \InputIfFileExists{languages/is.def}{}{%
     \ClassWarningNoLine{europecv}{Icelandic definition file 'ecvis.def' not found}}%
   }%
 }
 \DeclareOption{lithuanian}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvlt.def}{}{%
+    \InputIfFileExists{languages/lt.def}{}{%
     \ClassWarningNoLine{europecv}{Lithuanian definition file 'ecvlt.def' not found}}%
   }%
 }
 \DeclareOption{czech}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvcs.def}{}{%
+    \InputIfFileExists{languages/cs.def}{}{%
     \ClassWarningNoLine{europecv}{Czech definition file 'ecvcs.def' not found}}%
   }%
 }
 \DeclareOption{slovak}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvsk.def}{}{%
+    \InputIfFileExists{languages/sk.def}{}{%
     \ClassWarningNoLine{europecv}{Slovak definition file 'ecvsk.def' not found}}%
   }%
 }
 \DeclareOption{latvian}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvlv.def}{}{%
+    \InputIfFileExists{languages/lv.def}{}{%
     \ClassWarningNoLine{europecv}{Latvian definition file 'ecvlv.def' not found}}%
   }%
 }
 \DeclareOption{slovenian}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvsl.def}{}{%
+    \InputIfFileExists{languages/sl.def}{}{%
     \ClassWarningNoLine{europecv}{Slovenian definition file 'ecvsl.def' not found}}%
   }%
 }
 \DeclareOption{romanian}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvro.def}{}{%
+    \InputIfFileExists{languages/ro.def}{}{%
     \ClassWarningNoLine{europecv}{Romanian definition file 'ecvro.def' not found}}%
   }%
 }
 \DeclareOption{maltese}{%
   \AtEndOfPackage{%
-    \InputIfFileExists{ecvmt.def}{}{%
+    \InputIfFileExists{languages/mt.def}{}{%
     \ClassWarningNoLine{europecv}{Maltese definition file 'ecvmt.def' not found}}%
   }%
 }
 \DeclareOption{bulgarian}{%
   \AtEndOfPackage{%
-      \InputIfFileExists{ecvbg.def}{}{%
+      \InputIfFileExists{languages/bg.def}{}{%
       \ClassWarningNoLine{europecv}{Bulgarian definition file 'ecvbg.def' not found}}%
   }%
 }
 \DeclareOption{greek}{%
   \AtEndOfPackage{%
-     \InputIfFileExists{ecvgr.def}{}{%
+     \InputIfFileExists{languages/gr.def}{}{%
     \ClassWarningNoLine{europecv}{Greek definition file 'ecvgr.def' not found}}%
   }%
 }
 \DeclareOption{galician}{%
   \AtEndOfPackage{%
-     \InputIfFileExists{ecvgl.def}{}{%
+     \InputIfFileExists{languages/gl.def}{}{%
     \ClassWarningNoLine{europecv}{Galician definition file 'ecvgl.def' not found}}%
   }%
 }
 \DeclareOption{serbian}{%
   \AtEndOfPackage{%
-     \InputIfFileExists{ecvsr.def}{}{%
+     \InputIfFileExists{languages/sr.def}{}{%
     \ClassWarningNoLine{europecv}{Serbian definition file 'ecvsr.def' not found}}%
   }%
 }
@@ -246,7 +246,7 @@
 % Europass logo
 \DeclareOption{logo}{%
 \providecommand*\draweuropasslogo{%
-   \includegraphics[width=\ecv@logowidth]{europasslogo}}
+   \includegraphics[width=\ecv@logowidth]{images/europasslogo}}
 }
 \DeclareOption{nologo}{\renewcommand*\draweuropasslogo{}}
 
@@ -255,19 +255,19 @@
 \DeclareOption{noflag}{\providecommand*\draweuropeflag{}}
 \DeclareOption{flagWB}{%
   \renewcommand*\draweuropeflag{%
-    \includegraphics[width=\ecv@flagwidth]{EuropeFlagWB}}
+    \includegraphics[width=\ecv@flagwidth]{images/EuropeFlagWB}}
 }
 \DeclareOption{flagBW}{%
   \renewcommand*\draweuropeflag{%
-    \includegraphics[width=\ecv@flagwidth]{EuropeFlagBW}}
+    \includegraphics[width=\ecv@flagwidth]{images/EuropeFlagBW}}
 }
 \DeclareOption{flagCMYK}{%
   \renewcommand*\draweuropeflag{%
-    \includegraphics[width=\ecv@flagwidth]{EuropeFlagCMYK}}
+    \includegraphics[width=\ecv@flagwidth]{images/EuropeFlagCMYK}}
 }
 \DeclareOption{flagBlueCMYK}{%
  \renewcommand*\draweuropeflag{%
-   \includegraphics[width=\ecv@flagwidth]{EuropeFlagBlueCMYK}}
+   \includegraphics[width=\ecv@flagwidth]{images/EuropeFlagBlueCMYK}}
 }
 
 % Page numbering
